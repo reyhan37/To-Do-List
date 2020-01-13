@@ -1,0 +1,16 @@
+<h1>To-Do List</h1>
+<h2>A place to store To-Dos</h2>
+
+<div>
+    <hr>
+        <input type="text" placeholder="Filter ToDos" class="filter">    
+        <ol>
+            <li *ngFor="let task of tasks" [ngClass]="{completed: task.completed}">
+                <button class="completeButton" *ngIf= !task.completed (click)=removeCompletedTask(task)>Complete</button> 
+                {{ task.task }} 
+                <span class="close" (click)="removeTask(task)">x</span>
+            </li>
+        </ol>
+        <input type="text" placeholder="Add Task" class="addTask" [(ngModel)]="newTask">
+        <button class="addButton" (click)="addTask(newTask)">Add</button>
+</div>
